@@ -1,33 +1,31 @@
 # Projet Chat Motivation - Java Spring Boot
 
----
-
 ## Description
 
 Ce projet est composé de **deux applications Spring Boot** :
 
-*API* (Projet 1) : Fournit des citations inspirantes stockées en base de données et exposées via une API REST.
+***API*** (Projet 1) : Fournit des citations inspirantes stockées en base de données et exposées via une API REST.
 
-*Application Web* (Projet 2) : Interface utilisateur permettant de soumettre un message et recevoir une citation inspirante. Les conversations sont enregistrées en base de données et un historique est disponible.
+***Application Web*** (Projet 2) : Interface utilisateur permettant de soumettre un message et recevoir une citation inspirante. Les conversations sont enregistrées en base de données et un historique est disponible.
 
 ## Prérequis
 
-- *Java 17+*
+- ***Java 17+***
 
-- *Maven*
+- ***Maven***
 
-- *MySQL*
+- ***MySQL***
 
 ## Installation et Configuration
 
-1. Création de la base de données
+1. **Création de la base de données**
 
 Avant de lancer les projets, créez manuellement une base de données MySQL vide :
 ```
 CREATE DATABASE quote_bdd;
 ```
 
-2. Lancement du projet API (Backend)
+2. **Lancement du projet API (Backend)**
 
 Ce projet est responsable de l'initialisation de la base de données et de l'exposition des citations.
 
@@ -47,7 +45,7 @@ Route disponible :
 
 > ***GET /quote*** : Retourne une citation aléatoire depuis la base de données.
 
-3. Lancement du projet Application Web (Frontend)
+3. **Lancement du projet Application Web (Frontend)**
 
 Ce projet permet aux utilisateurs d'envoyer des messages et recevoir des citations inspirantes.
 
@@ -74,6 +72,11 @@ Enregistrement des conversations : Les échanges sont stockés en base de donné
 Affichage de l'historique des conversations : Une page dédiée permet de visualiser les échanges passés (**/historique**).
 
 ## Structure de la Base de Données
+
+La base de données contient deux tables :
+
+- quote : id (INT clé primaire), content (TEXT)
+- conversation : id (INT clé primaire), username (VARCHAR), message (TEXT), response_id (INT clé étrangère en référence à quote.id), created_at (TIMESTAMP)
 
 Les fichiers SQL situés dans le projet API contiennent :
 
