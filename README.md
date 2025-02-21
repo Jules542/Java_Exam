@@ -25,7 +25,11 @@ Avant de lancer les projets, créez manuellement une base de données MySQL vide
 CREATE DATABASE quote_bdd;
 ```
 
-2. **Lancement du projet API (Backend)**
+2. **Configuration MySQL dans les projets**
+
+Les projets contiennent chacun un fichier ***application.properties*** dans ***src/main/resources/***, ce fichier contient des valeurs relatives à la configuration de MySQL (username, password), veuillez les modifier si besoin.
+
+3. **Lancement du projet API (Backend)**
 
 Ce projet est responsable de l'initialisation de la base de données et de l'exposition des citations.
 
@@ -45,7 +49,7 @@ Route disponible :
 
 > ***GET /quote*** : Retourne une citation aléatoire depuis la base de données.
 
-3. **Lancement du projet Application Web**
+4. **Lancement du projet Application Web**
 
 Ce projet permet aux utilisateurs d'envoyer des messages et recevoir des citations inspirantes.
 
