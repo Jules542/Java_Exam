@@ -2,13 +2,16 @@ package com.example.api.repositories;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import java.util.List;
+
+import java.util.Random;
+
 import org.springframework.jdbc.core.RowMapper;
 import com.example.api.models.Quote;
 
 @Repository
 public class QuoteRepository {
     private final JdbcTemplate jdbcTemplate;
+    private final Random random = new Random();
 
     public QuoteRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -18,10 +21,17 @@ public class QuoteRepository {
     private final RowMapper<Quote> quoteRowMapper = (rs, rowNum) -> 
         new Quote(rs.getInt("id"), rs.getString("content"));
 
-
-    public List<Quote> getAllQuote() {
-        String sql = "SELECT id, content FROM quote";
-        List<Quote> quotes = jdbcTemplate.query(sql, quoteRowMapper);
-        return quotes;
+    private int getQuoteCount() {
+        String sql = "SELECT COUNT(*) FROM quote";
+        return jdbcTemplate.queryForObject(sql, Integer.class);
     }
+
+    public Quote getRandomQuote() {
+        int quoteCount = getQuoteCount();
+
+        int randomId = random.nextInt(quoteCount) + 1;
+
+        String sql = "SELECT id, content FROM quote WHERE id = ?";
+        return jdbcTemplate.query(sql, quoteRowMapper, randomId).stream().findFirst().orElse(new Quote(0, "Aucune citation trouvée."));
+    }  
 }

@@ -19,7 +19,7 @@ public class QuoteController {
     }
 
     @GetMapping("/quote")
-    public List<Quote> getQuote() {
-        return quoteService.getQuote();
+    public Quote getQuote() {
+        return quoteService.getRandomQuote();
     }
 }

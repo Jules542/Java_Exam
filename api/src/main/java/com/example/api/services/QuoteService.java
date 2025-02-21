@@ -1,9 +1,7 @@
 package com.example.api.services;
 
-import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 import com.example.api.models.Quote;
 import com.example.api.repositories.QuoteRepository;
@@ -17,7 +15,7 @@ public class QuoteService {
         this.quoteRepository = quoteRepository;
     }
 
-    public List<Quote> getQuote() {
-        return quoteRepository.getAllQuote();
+    public Quote getRandomQuote() {
+        return quoteRepository.getRandomQuote();
     }
 }
