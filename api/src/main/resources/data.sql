@@ -12,5 +12,5 @@ INSERT IGNORE INTO quote (id, content) VALUES
 
 
 -- Ajout d'une conversation test
-INSERT IGNORE INTO conversation (id, username, message, response) VALUES 
-(1, 'Jean-Kevin', 'Je suis stressé par le travail...', 'Le succès, c’est d’aller d’échec en échec sans perdre son enthousiasme.');
+INSERT IGNORE INTO conversation (id, username, message, response_id) VALUES 
+(1, 'Jean-Kevin', 'Je suis stressé par le travail...', 3);
