@@ -10,9 +10,7 @@ INSERT IGNORE INTO quote (id, content) VALUES
 (7, 'La vie, c’est comme une bicyclette, il faut avancer pour ne pas perdre l’équilibre.'),
 (8, 'La vie est un défi à relever, un bonheur à mériter, une aventure à tenter.');
 
--- Ajout d'un utilisateur test
-INSERT IGNORE INTO user (id, name) VALUES (1, 'Alice');
 
 -- Ajout d'une conversation test
-INSERT IGNORE INTO conversation (id, user_id, message, response) VALUES 
-(1, 1, 'Je suis stressé par le travail...', 'Le succès, c’est d’aller d’échec en échec sans perdre son enthousiasme.');
+INSERT IGNORE INTO conversation (id, username, message, response) VALUES 
+(1, 'Jean-Kevin', 'Je suis stressé par le travail...', 'Le succès, c’est d’aller d’échec en échec sans perdre son enthousiasme.');
