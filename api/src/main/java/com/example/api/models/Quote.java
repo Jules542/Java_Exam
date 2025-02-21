@@ -2,11 +2,11 @@ package com.example.api.models;
 
 public class Quote {
     private int id;
-    private String quote;
+    private String content;
 
-    public Quote(int id, String quote) {
+    public Quote(int id, String content) {
         this.id = id;
-        this.quote = quote;
+        this.content = content;
     }
 
     public int getId() {
@@ -14,6 +14,6 @@ public class Quote {
     }
 
     public String getQuote() {
-        return quote;
+        return content;
     }
 }
