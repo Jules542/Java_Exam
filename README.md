@@ -45,7 +45,7 @@ Route disponible :
 
 > ***GET /quote*** : Retourne une citation aléatoire depuis la base de données.
 
-3. **Lancement du projet Application Web (Frontend)**
+3. **Lancement du projet Application Web**
 
 Ce projet permet aux utilisateurs d'envoyer des messages et recevoir des citations inspirantes.
 
@@ -75,8 +75,8 @@ Affichage de l'historique des conversations : Une page dédiée permet de visual
 
 La base de données contient deux tables :
 
-- quote : id (INT clé primaire), content (TEXT)
-- conversation : id (INT clé primaire), username (VARCHAR), message (TEXT), response_id (INT clé étrangère en référence à quote.id), created_at (TIMESTAMP)
+- **quote** : id (INT clé primaire), content (TEXT)
+- **conversation** : id (INT clé primaire), username (VARCHAR), message (TEXT), response_id (INT clé étrangère en référence à quote.id), created_at (TIMESTAMP)
 
 Les fichiers SQL situés dans le projet API contiennent :
 
