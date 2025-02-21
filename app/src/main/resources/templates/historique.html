@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Historique des Conversations</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #007BFF;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr:hover {
+            background: #f1f1f1;
+        }
+
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            background: #007BFF;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Historique des Conversations</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nom d'utilisateur</th>
+                <th>Message</th>
+                <th>Réponse</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="conversation : ${conversations}">
+                <td th:text="${conversation.username}"></td>
+                <td th:text="${conversation.message}"></td>
+                <td th:text="${conversation.response}"></td>
+                <td th:text="${#temporals.format(conversation.createdAt, 'dd/MM/yyyy HH:mm:ss')}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/">Retour à la page de conversation</a>
+</body>
+</html>

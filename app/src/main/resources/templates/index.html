@@ -57,6 +57,11 @@
             border-radius: 4px;
             margin-top: 20px;
         }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -75,12 +80,15 @@
                 <textarea id="message" name="message" rows="4" placeholder="Écrivez quelque chose..." required></textarea>
             </div>
             
-            <button type="submit">Envoyer</button>
+            <div class="buttons">
+                <button type="submit">Envoyer</button>
+                <a href='/historique'>Historique</button>
+            </div>
         </form>
 
         <div class="quote" th:if="${quote != null}">
-            <h3>Réponse totalement aléatoire :</h3>
-            <p th:text="${quote.content}">[Citation ici]</p>
+            <h3>Réponse :</h3>
+            <p th:text="${quote.content}"></p>
         </div>
     </div>
 

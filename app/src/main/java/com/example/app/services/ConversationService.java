@@ -1,5 +1,7 @@
 package com.example.app.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.app.models.Conversation;
@@ -17,5 +19,9 @@ public class ConversationService {
     // Méthode pour enregistrer une conversation dans la base de données
     public void saveConversation(Conversation conversation) {
         conversationRepository.insertConv(conversation);
+    }
+
+    public List<Conversation> getAllConversations() {
+        return conversationRepository.getAllConversations();
     }
 }

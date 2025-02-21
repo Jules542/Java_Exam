@@ -8,14 +8,25 @@ public class Conversation {
 
     private String username;
     private String message;
+    private int response_id;
     private String response;
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 
-    // Constructeurs, getters et setters
-    public Conversation(String username, String message, String response) {
+    // Constructeur pour l'insertion
+    public Conversation(String username, String message, int response_id) {
+        this.username = username;
+        this.message = message;
+        this.response_id = response_id;
+        this.createdAt = LocalDateTime.now();
+    }
+
+    // Constructeur pour la récupération avec le created_at
+    public Conversation(int id, String username, String message, String response, LocalDateTime createdAt) {
+        this.id = id;
         this.username = username;
         this.message = message;
         this.response = response;
+        this.createdAt = createdAt;
     }
 
     public int getId() {
@@ -40,6 +51,14 @@ public class Conversation {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public int getResponse_id() {
+        return response_id;
+    }
+
+    public void setResponse_id(int response_id) {
+        this.response_id = response_id;
     }
 
     public String getResponse() {
